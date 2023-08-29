@@ -2,16 +2,32 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        {% block titulo %}
+    <title>{% block titulo %}
             FakePinterest
-        {% endblock %}
-    </title>
+        {% endblock %}</title>
 </head>
+
 {% block body %}
 <body>
     <h1>FakePinterest</h1>
+
+    {% block form %}
+    <form method="POST">
+
+        {{ form.csrf_token }}
+
+            {{form.email.label()}}
+            {{form.email()}}
+
+            {{form.senha.label()}}
+            {{form.senha()}}
+            
+            {{form.botao_confirmacao()}}
+            
+
+    </form>
+    {% endblock %}
+
 </body>
 {% endblock %}
 </html>

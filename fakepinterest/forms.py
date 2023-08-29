@@ -7,7 +7,7 @@ from fakepinterest.models import Usuario
 class FormLogin(FlaskForm):
     email = StringField("E-mail", validators=[DataRequired(), Email()]) 
     senha = PasswordField("Senha", validators=[DataRequired()])
-    botao_confirmacao("Fazer Login")
+    botao_confirmacao = SubmitField("Fazer Login")
     
 class FormCriarConta(FlaskForm):
     email = StringField("E-mail", validators=[DataRequired(), Email()])
