@@ -1,11 +1,14 @@
 {% extends "homepage.html" %}
 
 {% block titulo %}
-Perfil - {{usuario}}
+Perfil - {{usuario.username}}
 {% endblock %}
 
+{% include "navbar.html" %}
 {% block body %}
 <body>
+
+
     <h1>Perfil de {{usuario.username}}</h1>
     {% if form %}
     <form method="POST" enctype="multipart/form-data">
@@ -17,10 +20,9 @@ Perfil - {{usuario}}
 
     </form>
     {% endif %}
-
     <br><br>
     
-    <a href="{{ url_for('logout') }}">Sair</a>
+    
 
  
 {% for foto in usuario.fotos %}
@@ -29,5 +31,3 @@ Perfil - {{usuario}}
 
 </body>
 {% endblock %}
-
-
