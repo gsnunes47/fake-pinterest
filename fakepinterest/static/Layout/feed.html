@@ -1,34 +1,3 @@
-{% extends "homepage.html" %}
-
-{% block titulo %}
-Perfil - {{usuario.username}}
-{% endblock %}
-
-{% include "navbar.html" %}
-{% block body %}
-<body>
-
-    <h1>Perfil de {{usuario.username}}</h1>
-    {% if form %}
-    <form method="POST" enctype="multipart/form-data">
-
-        {{ form.csrf_token }}
-
-        {{ form.foto }}
-        {{ form.botao_confirmacao() }}
-
-    </form>
-    {% endif %}
-    <br><br>
-
-{% for foto in usuario.fotos %}
-    <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}">
-{% endfor %}
-
-</body>
-{% endblock %}
-
-
 <!DOCTYPE html>
 <html lang="pt">
   <head>
@@ -62,24 +31,11 @@ Perfil - {{usuario.username}}
           </div>
 
           <div class="restante-nav">
-            <p class="botao-perfil"><a href="" class="link-nav">Home</a></p>
+            <p class="botao-perfil"><a href="" class="link-nav">Perfil</a></p>
             <a href="" class="link-nav">Sair</a>
           </div>
         </nav>
       </header>
-
-      <div class="bloco-add-img">
-        <h2>alondoido - Enviar foto</h2>
-
-        <div class="bloco-input-botao">
-          <div class="bloco-arquivo">
-            <button class="botao-arquivo">Escolher arquivo</button>
-            <p>Nenhum arquivo escolhido</p>
-          </div>
-
-          <button class="botao-login">Enviar foto</button>
-        </div>
-      </div>
 
       <div class="conteudo">
         <div class="bloco-imagem">
